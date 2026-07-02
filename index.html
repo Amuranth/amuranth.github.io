@@ -1,8 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Character Vote Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Character Vote Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Segoe UI, sans-serif;
+    color:#e6e6e6;
+
+    background:
+        radial-gradient(circle at top, rgba(255,120,40,.15), transparent 40%),
+        linear-gradient(160deg,#050505,#130707,#1d0b0b,#050505);
+
+    overflow:hidden;
+}
+
+/* Background image */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("https://cdn.imgchest.com/files/d8db0173c044.png")
+        center/cover no-repeat;
+    opacity:.18;
+    z-index:-2;
+}
+
+/* Orange glow */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 50% 20%,
+        rgba(255,120,40,.12),
+        transparent 55%);
+    z-index:-1;
+}
+
+.card{
+    width:min(90%, 700px);
+    padding:50px;
+    text-align:center;
+
+    background:rgba(8,8,8,.55);
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,140,60,.18);
+    border-radius:24px;
+
+    box-shadow:
+        0 0 35px rgba(255,90,20,.12),
+        inset 0 0 30px rgba(255,140,50,.05);
+}
+
+.card{
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.status{
+    font-size:12px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#ffcb7a;
+    margin-bottom:15px;
+}
+
+h1{
+    font-size:2.8rem;
+    margin-bottom:20px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #ffcb7a,
+        #ff7b39
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:0 0 15px rgba(255,140,50,.4);
+}
+
+.divider{
+    width:120px;
+    height:2px;
+    margin:25px auto;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff9140,
+            transparent
+        );
+}
+
+p{
+    color:#b8b8b8;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.quote{
+    margin-top:35px;
+    color:#8c8c8c;
+    font-style:italic;
+    font-size:.95rem;
+}
+
+.button{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7a1f10,
+            #d8582a,
+            #ff9b45
+        );
+
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+
+    box-shadow:
+        0 0 20px rgba(255,120,40,.35);
+
+    transition:.25s;
+}
+
+.button:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 0 30px rgba(255,120,40,.55);
+}
+</style>
 </head>
+
 <body>
     <script>
         const voteOpen = false;
@@ -15,5 +174,28 @@
                 "<h1>No active votes right now.</h1><p>Check back later!</p>";
         }
     </script>
+<div class="card">
+    <div class="status">Voting Hub</div>
+
+    <h1>🗳️ Polls Closed</h1>
+
+    <div class="divider"></div>
+
+    <p>
+        There are currently no active character votes.<br>
+        New polls open whenever a new card project begins.<br><br>
+        Check back later to help decide who gets made next.
+    </p>
+
+    <div class="quote">
+        "Beware of he who would deny you access to information,
+        for in his heart he dreams himself your master."
+    </div>
+
+    <a class="button" href="https://github.com/Amuranth">
+        Follow for Updates
+    </a>
+</div>
+
 </body>
 </html>
