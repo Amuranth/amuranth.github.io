@@ -44,9 +44,11 @@ body::after{
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 50% 20%,
-        rgba(255,120,40,.12),
-        transparent 55%);
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,120,40,.12),
+            transparent 55%
+        );
     z-index:-1;
 }
 
@@ -64,10 +66,8 @@ body::after{
     box-shadow:
         0 0 35px rgba(255,90,20,.12),
         inset 0 0 30px rgba(255,140,50,.05);
-}
 
-.card{
-    animation: float 6s ease-in-out infinite;
+    animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
@@ -159,22 +159,19 @@ p{
     box-shadow:
         0 0 30px rgba(255,120,40,.55);
 }
+
+/* Prevent animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+    .card{
+        animation:none;
+    }
+}
 </style>
 </head>
 
 <body>
-    <script>
-        const voteOpen = false;
-        const voteURL = "https://docs.google.com/forms/d/e/1FAIpQLSePKdVa8O3z-FZYqN3r6bGx2vsUeHxA_N6sq8mrb8f2cuHCrw/viewform?usp=publish-editor";
 
-        if (voteOpen) {
-            window.location.href = voteURL;
-        } else {
-            document.body.innerHTML =
-                "<h1>No active votes right now.</h1><p>Check back later!</p>";
-        }
-    </script>
-<div class="card">
+<div id="closed-page" class="card">
     <div class="status">Voting Hub</div>
 
     <h1>🗳️ Polls Closed</h1>
@@ -196,6 +193,15 @@ p{
         Follow for Updates
     </a>
 </div>
+
+<script>
+    const voteOpen = false;
+    const voteURL = "https://docs.google.com/forms/d/e/1FAIpQLSePKdVa8O3z-FZYqN3r6bGx2vsUeHxA_N6sq8mrb8f2cuHCrw/viewform?usp=publish-editor";
+
+    if (voteOpen) {
+        window.location.replace(voteURL);
+    }
+</script>
 
 </body>
 </html>
