@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Vote Hub</title>
+</head>
+<body>
+    <script>
+        const voteOpen = false;
+        const voteURL = "https://docs.google.com/forms/d/e/1FAIpQLSePKdVa8O3z-FZYqN3r6bGx2vsUeHxA_N6sq8mrb8f2cuHCrw/viewform?usp=publish-editor";
+
+        if (voteOpen) {
+            window.location.href = voteURL;
+        } else {
+            document.body.innerHTML =
+                "<h1>No active votes right now.</h1><p>Check back later!</p>";
+        }
+    </script>
+</body>
+</html>
